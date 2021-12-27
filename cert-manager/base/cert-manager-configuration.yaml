@@ -1,0 +1,13 @@
+nameReference:
+  - kind: ClusterIssuer
+    fieldSpecs:
+      - path: spec/issuerRef/name
+        kind: Certificate
+  - kind: Secret
+    fieldSpecs:
+      - path: spec/ca/secretName
+        kind: ClusterIssuer
+  - kind: Ingress
+    fieldSpecs:
+      - path: spec/acme/config/http01/ingress
+        kind: Certificate

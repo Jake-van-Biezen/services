@@ -1,0 +1,15 @@
+apiVersion: cert-manager.io/v1
+kind: ClusterIssuer
+metadata:
+  name: clusterissuer
+spec:
+  acme:
+    # Change this to your own email
+    email: jake.van.biezen@sltn.nl
+    server: https://acme-staging-v02.api.letsencrypt.org/directory
+    privateKeySecretRef:
+      name: clusterissuer-letsencrypt-staging-account-key-secret
+    solvers:
+      - http01:
+          ingress:
+            class: nginx
